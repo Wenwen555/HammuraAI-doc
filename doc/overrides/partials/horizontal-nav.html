@@ -1,0 +1,30 @@
+{% if nav %}
+<div class="app-nav-shell">
+  <div class="md-grid">
+    <nav class="app-nav" aria-label="Primary">
+      {% for item in nav.items %}
+        {% if item.children %}
+          <div class="app-nav__item{% if item.active %} app-nav__item--active{% endif %}">
+            <button class="app-nav__summary" type="button" aria-haspopup="true">
+              <span>{{ item.title }}</span>
+            </button>
+            <div class="app-nav__panel">
+              {% for child in item.children %}
+                {% if child.url %}
+                  <a href="{{ child.url | url }}" class="app-nav__link{% if child.active %} app-nav__link--active{% endif %}">
+                    {{ child.title }}
+                  </a>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        {% else %}
+          <a href="{{ item.url | url }}" class="app-nav__summary app-nav__summary--link{% if item.active %} app-nav__summary--active{% endif %}">
+            <span>{{ item.title }}</span>
+          </a>
+        {% endif %}
+      {% endfor %}
+    </nav>
+  </div>
+</div>
+{% endif %}
