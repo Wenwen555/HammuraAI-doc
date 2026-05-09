@@ -1,0 +1,79 @@
+site_name: HammuraAI Design Notes
+site_description: HammuraAI 初步设计文档与第一阶段交付进度
+site_url: ""
+repo_url: ""
+docs_dir: doc
+
+theme:
+  name: material
+  custom_dir: doc/overrides
+  language: zh
+  logo: assets/scales.svg
+  favicon: assets/scales.svg
+  palette:
+    - scheme: default
+      primary: white
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: 切换到深色模式
+    - scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: 切换到浅色模式
+  icon:
+    annotation: material/plus-circle
+  font:
+    text: Noto Serif SC
+    code: JetBrains Mono
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.footer
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.tabs.link
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.details
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+extra_css:
+  - styles/legal-theme.css
+
+nav:
+  - 首页: index.md
+  - 总览:
+      - 第一阶段交付: phase-one-deliverables.md
+      - 系统架构: architecture.md
+  - 模块设计:
+      - 数据库搭建: modules/database.md
+      - 检索工具: modules/retrieval.md
+      - 重排功能: modules/rerank.md
+      - LLM 调用模块: modules/llm.md
+      - 用户档案管理: modules/profile.md
+      - 多用户会话功能: modules/multi-session.md
+      - Prompt 模板管理: modules/prompts.md
